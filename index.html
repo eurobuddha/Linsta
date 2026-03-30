@@ -289,6 +289,7 @@ a.how-step-link:hover { border-color: var(--lint); }
   background: var(--bg-warm);
   padding: 64px 36px;
   border-bottom: 1px solid var(--border-light);
+  overflow: hidden;
 }
 
 .vs-inner { max-width: 740px; width: 100%; margin: 0 auto; }
@@ -342,6 +343,7 @@ a.how-step-link:hover { border-color: var(--lint); }
 .studio-section {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .studio-header {
@@ -375,6 +377,8 @@ a.how-step-link:hover { border-color: var(--lint); }
   gap: 26px;
   background: var(--surface);
   border-right: 1px solid var(--border);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .section { display: flex; flex-direction: column; gap: 10px; }
@@ -444,8 +448,8 @@ a.how-step-link:hover { border-color: var(--lint); }
 .crop-btn:hover { border-color: var(--border-focus); color: var(--ink-soft); }
 .crop-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
 
-.slider-row { display: flex; align-items: center; gap: 12px; }
-.slider-label { font-size: 12px; font-weight: 600; color: var(--ink-muted); min-width: 56px; }
+.slider-row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.slider-label { font-size: 12px; font-weight: 600; color: var(--ink-muted); min-width: 56px; flex-shrink: 0; }
 .slider-value { font-family: var(--font); font-size: 11px; font-weight: 700; color: var(--accent); min-width: 34px; text-align: right; }
 
 input[type="range"] { -webkit-appearance: none; appearance: none; flex: 1; height: 3px; border-radius: 2px; background: var(--border); outline: none; }
@@ -779,7 +783,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 16p
 
 /* ── Text Overlay ── */
 .overlay-options { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-.overlay-row { display: flex; gap: 6px; align-items: center; }
+.overlay-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .overlay-select {
   flex: 1; padding: 8px 10px;
   border: 1.5px solid var(--border); border-radius: 8px;
@@ -788,7 +792,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 16p
   cursor: pointer;
 }
 .overlay-select:focus { border-color: var(--accent); }
-.color-swatches { display: flex; gap: 6px; }
+.color-swatches { display: flex; gap: 6px; flex-wrap: wrap; }
 .swatch {
   width: 26px; height: 26px; border-radius: 50%;
   cursor: pointer; transition: all 0.15s;
@@ -807,6 +811,7 @@ footer {
   background: #060608;
   color: #666;
   padding: 48px 36px 36px;
+  overflow: hidden;
 }
 
 .footer-inner {
