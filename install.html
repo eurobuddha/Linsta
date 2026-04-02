@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Install — Linsta</title>
+<meta name="description" content="Get a Minima node running and start posting to the Linternet with Linsta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0b0e;
+  --surface: #1a1a1f;
+  --surface2: #131316;
+  --ink: #f5f5f7;
+  --ink-soft: #d0d0d4;
+  --dim: #77777e;
+  --accent: #f0c040;
+  --lint: #34d399;
+  --border: #252529;
+  --radius: 12px;
+  --font: 'Manrope', system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font); background: var(--bg); color: var(--ink-soft); line-height: 1.6; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: #fff; }
+
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 32px; border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-size: 20px; font-weight: 800; color: var(--ink); }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-size: 14px; color: var(--dim); font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+
+.hero {
+  text-align: center; padding: 64px 20px 32px;
+}
+.hero h1 { font-size: 32px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
+.hero p { font-size: 16px; color: var(--dim); }
+
+.section { max-width: 720px; margin: 0 auto; padding: 48px 20px; }
+.section-alt { background: var(--surface2); padding: 48px 20px; }
+.section-alt .section-inner { max-width: 720px; margin: 0 auto; }
+.section-title { font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.section-sub { font-size: 14px; color: var(--dim); margin-bottom: 24px; }
+
+.steps { display: flex; flex-direction: column; gap: 20px; }
+.step {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px;
+}
+.step-num { font-size: 28px; flex-shrink: 0; width: 40px; text-align: center; }
+.step h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.step p { font-size: 14px; color: var(--ink-soft); }
+
+.code-block {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px; margin: 10px 0;
+  font-family: monospace; font-size: 13px; color: var(--ink);
+  overflow-x: auto; cursor: pointer;
+}
+.code-block:hover { border-color: var(--accent); }
+
+.btn {
+  display: inline-block; padding: 12px 28px; border-radius: 8px;
+  font-weight: 600; font-size: 14px; text-decoration: none;
+}
+.btn-gold { background: var(--accent); color: #000; }
+.btn-outline { border: 1px solid var(--border); color: var(--ink); }
+.btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+.cta-banner {
+  text-align: center; padding: 64px 20px;
+  background: var(--surface2); border-top: 1px solid var(--border);
+}
+.cta-banner h2 { font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.cta-banner p { color: var(--dim); margin-bottom: 20px; }
+
+footer {
+  background: #060608; color: #666; padding: 32px 20px;
+  text-align: center; font-size: 13px;
+}
+footer a { color: #999; margin: 0 12px; }
+footer a:hover { color: #fff; }
+
+@media (max-width: 600px) {
+  nav { padding: 12px 16px; }
+  .step { flex-direction: column; gap: 8px; }
+  .step-num { width: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Linsta<span>.</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="install.html" class="active">Install</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Install Guide</h1>
+  <p>Get a Minima node running, then publish posts to the Linternet.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Step 1: Run a Minima Node</div>
+  <div class="section-sub">One command installs everything. Pick your platform.</div>
+
+  <div class="steps">
+    <!-- Mac -->
+    <div class="step">
+      <div class="step-num">🍎</div>
+      <div>
+        <h3>Mac</h3>
+        <p>Open <strong>Terminal</strong> and paste this:</p>
+        <div class="code-block" onclick="copyCmd(this)" title="Click to copy">curl -sL https://raw.githubusercontent.com/eurobuddha/minima-installer/main/setup-minima.command | bash</div>
+        <p style="font-size:13px; color:var(--dim);">Installs Java and everything else automatically. A setup wizard opens in your browser.</p>
+      </div>
+    </div>
+
+    <!-- Windows -->
+    <div class="step">
+      <div class="step-num">🪟</div>
+      <div>
+        <h3>Windows</h3>
+        <p>Open <strong>Command Prompt</strong> and paste this:</p>
+        <div class="code-block" onclick="copyCmd(this)" title="Click to copy">curl -o %TEMP%\setup-minima.bat https://raw.githubusercontent.com/eurobuddha/minima-installer/main/setup-minima.bat && %TEMP%\setup-minima.bat</div>
+        <p style="font-size:13px; color:var(--dim);">Installs Java and everything else automatically. A setup wizard opens in your browser.</p>
+      </div>
+    </div>
+
+    <!-- Linux -->
+    <div class="step">
+      <div class="step-num">🐧</div>
+      <div>
+        <h3>Linux</h3>
+        <p>Open a <strong>Terminal</strong> and paste this:</p>
+        <div class="code-block" onclick="copyCmd(this)" title="Click to copy">curl -sL https://raw.githubusercontent.com/eurobuddha/minima-installer/master/setup-minima-linux.sh | bash</div>
+        <p style="font-size:13px; color:var(--dim);">Installs Java and tmux automatically. Supports apt, dnf, yum, and pacman.</p>
+      </div>
+    </div>
+
+    <!-- Android -->
+    <div class="step">
+      <div class="step-num">📱</div>
+      <div>
+        <h3>Android</h3>
+        <p>Download the <strong>Minima</strong> app from the <a href="https://play.google.com/store/apps/details?id=com.minima.android" target="_blank">Google Play Store</a>. Open it — your node starts automatically.</p>
+      </div>
+    </div>
+
+    <!-- Raspberry Pi -->
+    <div class="step">
+      <div class="step-num">🍓</div>
+      <div>
+        <h3>Raspberry Pi</h3>
+        <p>Flash <strong>Pi OS Lite (64-bit)</strong> with <a href="https://www.raspberrypi.com/software/" target="_blank">Raspberry Pi Imager</a> (enable SSH + WiFi), then SSH in and paste:</p>
+        <div class="code-block" onclick="copyCmd(this)" title="Click to copy">curl -sL https://raw.githubusercontent.com/eurobuddha/raspberry/main/headless/setup-minima-headless.sh | bash</div>
+        <p style="font-size:13px; color:var(--dim);">Runs as a systemd service. Access MDS Hub at <strong>https://minima.local:9003</strong> from any device on your network. Pi 4 or Pi 5 recommended (4GB+).</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:13px; color:var(--dim); margin-top:16px;">After your node is running, write down your seed phrase: open the <strong>Security</strong> MiniDapp and back it up immediately.</p>
+</div>
+
+<script>
+function copyCmd(el) {
+  navigator.clipboard.writeText(el.textContent.trim());
+  var orig = el.style.borderColor;
+  el.style.borderColor = 'var(--accent)';
+  setTimeout(function() { el.style.borderColor = orig; }, 1000);
+}
+</script>
+
+<div class="section-alt">
+  <div class="section-inner">
+    <div class="section-title">Step 2: Install the MiniDapps</div>
+    <div class="section-sub">You need PocketFS and PocketWeb to publish Linsta posts to the Linternet.</div>
+
+    <div class="btn-row" style="margin-bottom:20px;">
+      <a href="https://github.com/eurobuddha/PocketWeb/releases/latest" class="btn btn-gold">Download from GitHub</a>
+    </div>
+
+    <p style="font-size:13px; color:var(--dim); text-align:center;">
+      Grab both ZIP files:<br>
+      <strong style="color:var(--ink);">pocketFS</strong> &amp;
+      <strong style="color:var(--ink);">pocketWeb</strong> .mds.zip files
+    </p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Step 3: Create &amp; Publish</div>
+  <div class="section-sub">Use Linsta to create posts, then publish via PocketWeb.</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <h3>Open the MDS Hub</h3>
+        <p><strong>Mobile:</strong> Open the Minima app and tap the MiniDapp hub icon.<br>
+        <strong>Desktop:</strong> Go to <strong>https://127.0.0.1:9003</strong> in your browser.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <h3>Install PocketFS then PocketWeb</h3>
+        <p>Tap the <strong>+</strong> button, select each .mds.zip file and confirm. PocketFS must be installed first.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <h3>Create a post with Linsta</h3>
+        <p>Use the <a href="index.html">Linsta Post Studio</a> to create your image post. Download the generated .html file.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <h3>Publish to the Linternet</h3>
+        <p>Open PocketWeb, use the Site Generator to upload your post, and publish it to the decentralized web.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-banner">
+  <h2>Need help?</h2>
+  <p>Check PocketWeb docs or open an issue on GitHub.</p>
+  <div class="btn-row">
+    <a href="https://pocketweb.uk" class="btn btn-gold">PocketWeb</a>
+    <a href="https://github.com/eurobuddha/Linsta/issues" class="btn btn-outline">GitHub Issues</a>
+  </div>
+</div>
+
+<footer>
+  <a href="https://pocketweb.uk">PocketWeb</a>
+  <a href="https://pocketshop.uk">Pocket Shop</a>
+  <a href="https://minimerch.info">miniMerch</a>
+  <a href="https://minima.global">Minima</a>
+  <a href="https://github.com/eurobuddha/Linsta">GitHub</a>
+  <br><br>
+  Linsta &copy; 2025 &middot; Built for the Linternet &middot; Powered by Minima
+</footer>
+
+</body>
+</html>
